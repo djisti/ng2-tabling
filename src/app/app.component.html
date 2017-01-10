@@ -1,3 +1,29 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-layout>
+  <md-sidenav #sidenav mode="side" class="app-sidenav">
+    Navi
+  </md-sidenav>
+  <md-toolbar color="primary">
+    <button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button>
+
+    {{title}}
+
+    <span class="app-toolbar-filler"></span>
+  </md-toolbar>
+
+  <div class="app-content">
+  	
+  	<md-card *ngFor="let recipe of recipes">
+  		<h3 md-line>{{recipe.recipeId}}</h3>
+  		<p md-line class="demo-secondary-text">
+  			{{recipe.description}}
+  		</p>
+  		<button md-raised-button md-tooltip="Want to see more?">
+  			View
+  		</button>
+  	</md-card>
+
+  </div>
+
+</md-sidenav-layout>
